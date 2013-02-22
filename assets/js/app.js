@@ -17,8 +17,6 @@ glob.queryMethod = 'getIndexes';
 
 glob.url = baseUrl + glob.queryMethod + param;
 
-console.log(glob.url);
-
 glob.requestData = function() {
   var req;
   req = $.ajax({
@@ -34,7 +32,6 @@ glob.requestData = function() {
       console.log(this);
       return $(this.artist).each(function() {
         var context, html;
-        console.log(this.name);
         context = {
           title: this.name,
           artistid: this.id
@@ -46,13 +43,20 @@ glob.requestData = function() {
   });
 };
 
-glob.requestData();
-
-$('body').on('click', '#organize', function() {
-  $('.tracks ul').empty();
+$('body').on('click', 'button', function() {
+  console.log('btn');
   return glob.requestData();
 });
+
+$('body').on('click', '.list-item', function() {
+  var winLoc;
+  winLoc = window.location.hash;
+  return console.log(winLoc);
+});
+
 })
+
+
 
 MYAPP.events = (function(){
 
@@ -62,9 +66,14 @@ MYAPP.events = (function(){
 
 MYAPP.run = (function() {
 	// create the Kendo UI Mobile application
-    MYAPP.app = new kendo.mobile.Application(document.body, { transition: "slide" });
+    MYAPP.app = new kendo.mobile.Application(document.body, {
+      transition: "slide"
+    , loading: "<h1>Please wait...</h1>"
+    });
     console.log('run')
-    //MYAPP.subsonic()
+    $(function(){
+      MYAPP.subsonic()
+    })
 });
 
 // this is called when the intial view shows. it prevents the flash

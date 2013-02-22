@@ -4,7 +4,7 @@ param = '.view?u=brian&p=home&v=1.8.0&c=digidj&f=jsonp&callback=?'
 console.log 'get music folders'
 glob.queryMethod = 'getIndexes'
 glob.url = baseUrl + glob.queryMethod + param
-console.log glob.url
+
 
 glob.requestData = ->
     req = $.ajax
@@ -19,7 +19,7 @@ glob.requestData = ->
       $(d['subsonic-response']['indexes']['index']).each ->
         console.log @
         $(@artist).each ->
-            console.log @name
+            #console.log @name
             context =
               title: @name
               artistid: @id
@@ -27,8 +27,16 @@ glob.requestData = ->
             html = template(context)
             $('.tracks ul').append html if @name != undefined
 
-glob.requestData()
 
-$('body').on 'click', '#organize', ->
-    $('.tracks ul').empty()
+$('body').on 'click', 'button', ->
+    console.log 'btn'
     glob.requestData()
+
+
+$('body').on 'click', '.list-item', ->
+    # console.log $(@).data('artistid')
+    winLoc = window.location.hash
+    console.log winLoc
+
+
+

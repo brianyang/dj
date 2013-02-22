@@ -10,14 +10,15 @@
 		<link rel="stylesheet" href="assets/css/master.css">
 
 		<script type="text/javascript" src="assets/js/jquery.min.js"></script>
-
 		<!-- Kendo UI JavaScript -->
 		<script src="http://cdn.kendostatic.com/2012.2.710/js/kendo.all.min.js"></script>
 
 		<script src="phonegap.js" type="text/javascript" charset="utf-8"></script>
     <script src=assets/js/handlebars.js></script>
-		<script type="text/javascript" src="assets/js/app.js"></script>
+    <style>a{text-decoration:none}</style>
 
+    <!--<script src=assets/js/idangerous.swiper-1.8.min.js></script>-->
+    <!--<script src=assets/js/swiper-demos.js></script>-->
 
 	</head>
 	<body>
@@ -45,24 +46,59 @@
 			 data-layout="main-layout" where "main-layout" is the data-id of the desired
 			 layout --><li><span class="km-icon km-organize"></span><br>organize</li>
 
+         loading: "<h1>Please wait...</h1>"
 		<div data-role="view" data-show="MYAPP.show" data-layout="main-layout" id="home" data-title="Home">
 			<p>Home</p>
       <button id=fetch>fetch data</button>
 		</div>
 
+         loading: "<h1>Please wait...</h1>"
 		<div data-role="view" data-layout="main-layout" id="organize" data-title="Organize">
-			<p>Organize</p>
+			<p><button>load</button></p>
       <div class="tracks">
         <ul data-role=listview data-click=listViewClick>
         </ul>
       </div>
 		</div>
 		<div data-role="view" data-layout="main-layout" id="settings" data-title="Settings">
+
+<div class="swiper-container swiper1">
+<div class="swiper-wrapper" style="width: 3200px; height: 300px; -webkit-transform: translate3d(-1801px, 0px, 0px); -webkit-transition: 0s;"><div class="swiper-slide" style="width: 640px; height: 300px;">
+<div class="content-slide">
+<h2 style="margin-top: 0;">Slide with HTML</h2>
+<p>You can put any HTML inside of slide with any layout, not only images, even another Swiper!</p>
+</div>
+<div class="content-slide cs-1">
+<p style="margin: 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consectetur tortor vitae neque luctus a tempor lacus pretium. Mauris eget ligula at justo molestie cursus. In vitae sem id neque pharetra luctus non vel felis.</p>
+</div>
+<div class="content-slide cs-2">
+<p style="margin: 0;">Aliquam ut laoreet ligula. Quisque vehicula lectus nec orci viverra porttitor. Donec sodales lectus sit amet nunc congue ut mattis augue rhoncus.</p>
+</div>
+<div class="clearfix"></div>
+</div>
+<div class="swiper-slide" style="width: 640px; height: 300px;"> <img src="assets/img/slider1-1.png"> </div>
+<div class="swiper-slide" style="width: 640px; height: 300px;"> <img src="assets/img/slider1-2.png"> </div>
+<div class="swiper-slide" style="width: 640px; height: 300px;">
+<div class="content-slide">
+<h2 style="margin-top: 0;">Slide with HTML</h2>
+<p>You can put any HTML inside of slide with any layout, not only images, even another Swiper!</p>
+</div>
+<div class="content-slide cs-1">
+<p style="margin: 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consectetur tortor vitae neque luctus a tempor lacus pretium. Mauris eget ligula at justo molestie cursus. In vitae sem id neque pharetra luctus non vel felis.</p>
+</div>
+<div class="content-slide cs-2">
+<p style="margin: 0;">Aliquam ut laoreet ligula. Quisque vehicula lectus nec orci viverra porttitor. Donec sodales lectus sit amet nunc congue ut mattis augue rhoncus.</p>
+</div>
+<div class="clearfix"></div>
+</div>
+<div class="swiper-slide" style="width: 640px; height: 300px;"> <img src="assets/img/slider1-1.png"> </div></div>
+</div>
+
 			<p>Settings</p>
 		</div>
     <script id="track-content" type="text/x-handlebars-template">
-      <li><a data-artistid={{artistid}} href="#artistid{{artistid}}" >{{title}}</a></li>
+      <li><a data-artistid={{artistid}} class=list-item href="#artistid{{artistid}}" >{{title}}</a></li>
     </script>
-
+		<script type="text/javascript" src="assets/js/app.js"></script>
 	</body>
 </html>
